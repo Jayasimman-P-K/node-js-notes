@@ -3,7 +3,8 @@
 ## Chapter 1 : Intro
 
 - CommonJS module is used instead of ES6 Module
-  ![computers-and-code](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/c415f6c2-7a42-475e-9487-8b1f2f4d39fe)
+
+![computers-and-code](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/c415f6c2-7a42-475e-9487-8b1f2f4d39fe)
 
 ## Chapter 2 : Node.js Basics
 
@@ -126,27 +127,27 @@
 
   - [Click here](https://medium.com/@diego.coder/buffers-and-streams-in-node-js-8cf094621dd9) to read more about streams and buffers.
 
-  ![stream-and-buffer](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/92a9ef9b-5238-4bfb-8ec3-18f03791fe37)
+![stream-and-buffer](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/92a9ef9b-5238-4bfb-8ec3-18f03791fe37)
 
-  - ##### Example Code:
+- ###### Example Code:
 
-  ```js
-  const fs = require("fs");
+```js
+const fs = require("fs");
 
-  const readStream = fs.createReadStream("./docs/text1.txt", {
-    encoding: "utf-8",
-  });
-  const writeStream = fs.createWriteStream("./docs/text2.txt");
+const readStream = fs.createReadStream("./docs/text1.txt", {
+  encoding: "utf-8",
+});
+const writeStream = fs.createWriteStream("./docs/text2.txt");
 
-  // This is how we read data from readStream
-  readStream.on("data", (chunk) => {
-    // chunk is the data read using readStream
-    writeStream.write("========= New Chunk ========");
-    writeStream.write(chunk); // Now we pass that chunk into writeStream
-  });
+// This is how we read data from readStream
+readStream.on("data", (chunk) => {
+  // chunk is the data read using readStream
+  writeStream.write("========= New Chunk ========");
+  writeStream.write(chunk); // Now we pass that chunk into writeStream
+});
 
-  // We can also do Piping as well, which works same as the above code.
+// We can also do Piping as well, which works same as the above code.
 
-  // Piping => When we have to do both the process at the same time.
-  readStream.pipe(writeStream);
-  ```
+// Piping => When we have to do both the process at the same time.
+readStream.pipe(writeStream);
+```
