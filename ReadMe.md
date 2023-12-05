@@ -3,7 +3,7 @@
 ## Chapter 1 : Intro
 
 - CommonJS module is used instead of ES6 Module
-  <img src="./assets/computers-and-code.png" alt="" style="margin-top: 1rem">
+![computers-and-code](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/c415f6c2-7a42-475e-9487-8b1f2f4d39fe)
 
 ## Chapter 2 : Node.js Basics
 
@@ -125,5 +125,5 @@
   - In summary, Streams help in handling data in a sequential manner, while Buffers provide a mechanism for dealing with binary data efficiently.
 
   - [Click here](https://medium.com/@diego.coder/buffers-and-streams-in-node-js-8cf094621dd9) to read more about streams and buffers.
+  ![stream-and-buffer](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/92a9ef9b-5238-4bfb-8ec3-18f03791fe37)
 
-  <img src="/assets/stream-and-buffer.png" alt="Alt text" title="streaming and buffer" style="margin-top: 1rem">
