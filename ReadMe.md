@@ -150,7 +150,7 @@
 
 ## Chapter 3 & 4 : Clients & Servers
 
-- Creating a server using node.
+- Creating a server using vanilla nodejs.
 
 ```javascript
 const http = require("http");
@@ -205,14 +205,10 @@ server.listen(3000, "localhost", () => {
   - **Status Code:** describes the type of response sent to the browser.
   - **Status Codes:**
     - 100 range - informational responses
-    - 200 range - success codes
-      - eg: 200 - ok
-    - 300 range - codes for redirects
-      - eg: 301 - moved permanently
-    - 400 range - client side error codes
-      - eg: 404 - not found
-    - 500 range - server side error codes
-      - eg: 500 - internal server error
+    - 200 range - success codes. _eg_: 200 - ok
+    - 300 range - codes for redirects. _eg_: 301 - moved permanently
+    - 400 range - client side error codes. _eg_: 404 - not found
+    - 500 range - server side error codes. _eg_: 500 - internal server error
 
 ## Chapter 5 : NPM
 
@@ -220,7 +216,7 @@ server.listen(3000, "localhost", () => {
 
 ## Chapter 6 : ExpressJS
 
-- Creating a server in node with express
+- Creating a server in node.js with express.js.
 
 ```js
 const express = require("express");
@@ -251,14 +247,16 @@ app.use((req, res) => {
 });
 ```
 
-## View Engines
+## Chapter 7 : View Engines
 
-## Middlewares
+![Screenshot (71)](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/02d3e2ec-b794-4a5b-961c-69a6bb3ad2ce)
 
-## MongoDB
+## Chapter 8 : Middlewares
 
-## Get, Post, Put & Delete
+## Chapter 9 : MongoDB
 
-## Express Router & MVC
+## Chapter 10 : Get, Post, Put & Delete
+
+## Chapter 11 : Express Router & MVC
 
 ## Wrap up
