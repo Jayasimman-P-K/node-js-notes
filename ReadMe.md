@@ -150,55 +150,54 @@
 
 ## Chapter 3 & 4 : Clients & Servers
 
-    ```js
-    const http = require("http");
-    const fs = require("fs");
+```javascript
+const http = require("http");
+const fs = require("fs");
 
-    const server = http.createServer((req, res) => {
-    console.log(req.url, req.method);
+const server = http.createServer((req, res) => {
+  console.log(req.url, req.method);
 
-    // set header content type
-    res.setHeader("content-type", "text/html");
+  // set header content type
+  res.setHeader("content-type", "text/html");
 
-    // routing
-    let path = "./public/";
-    switch (req.url) {
-        case "/":
-        path += "index.html";
-        res.statusCode = 200;
-        break;
-        case "/about":
-        path += "about.html";
-        res.statusCode = 200;
-        break;
-        case "/about-me":
-        res.statusCode = 301;
-        res.setHeader("Location", "/about"); // redirects
-        res.end();
-        break;
-        default:
-        path += "error.html";
-        res.statusCode = 404;
-        break;
-    }
+  // routing
+  let path = "./public/";
+  switch (req.url) {
+    case "/":
+      path += "index.html";
+      res.statusCode = 200;
+      break;
+    case "/about":
+      path += "about.html";
+      res.statusCode = 200;
+      break;
+    case "/about-me":
+      res.statusCode = 301;
+      res.setHeader("Location", "/about"); // redirects
+      res.end();
+      break;
+    default:
+      path += "error.html";
+      res.statusCode = 404;
+      break;
+  }
 
-    // send an response
-    fs.readFile(path, (err, data) => {
-        err
-        ? (console.log(err),
-            // end the response
-            res.end())
-        : (res.write(data),
-            // end the response
-            res.end());
-    });
-    });
+  // send an response
+  fs.readFile(path, (err, data) => {
+    err
+      ? (console.log(err),
+        // end the response
+        res.end())
+      : (res.write(data),
+        // end the response
+        res.end());
+  });
+});
 
-    server.listen(3000, "localhost", () => {
-    console.log("listening for the request on port 3000");
-    });
-
-    ```
+server.listen(3000, "localhost", () => {
+  console.log("listening for the request on port 3000");
+});
+```
 
 - #### Request & Responses
   - **Status Code:** describes the type of response sent to the browser.
