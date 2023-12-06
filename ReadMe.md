@@ -11,19 +11,19 @@
 - #### Getting Directory and File path
 
   ```js
-  console.log(__dirname); // path to the current directory
-  console.log(__filename); // path to the current file
+  console.log(__dirname); // dir path
+  console.log(__filename); // file path
   ```
 
 - #### Import and Export in NodeJs (CommonJS)
 
   ```js
-  // peoples.js => fileName
+  // peoples.js : fileName
   const names = ["Jayasi", "Modi", "Musk", "mark"];
   const age = ["25", "65", "45", "35"];
   module.exports = { names, age }; // export syntax
 
-  // module.js => fileName
+  // module.js : fileName
   const { names, age } = require("./peoples"); // import syntax
   console.log(names, age);
 
@@ -43,7 +43,7 @@
   win32
   ```
 
-- #### The File System => **_fs_** module
+- #### The File System : **_fs_** module
 
   ```js
   const fs = require("fs");
@@ -60,19 +60,19 @@
     (err, data) => {
       console.log("data written");
     }
-  ); // Data inside the text1 file will be replaced with the new data.
+  );
 
-  // This is not working for some reason. Let me check!!
+  // This is not working for some reason. Update is req!!
   const writeNewData = fs.writeFile(
     ".docs/text2.txt",
     "Hello from newly created file",
     (err, data) => {
       console.log("file created and data written");
     }
-  ); // Initially, there is no text2 file. So, it will create a new file "text2" and writes the data.
+  );
 
   // Creating and Deleting directories
-  !fs.existsSync("./assets") // If dir not exists, create that dir otherwise del that dir.
+  !fs.existsSync("./assets")
     ? fs.mkdir("./assets", (err) => {
         console.log(err ? err : "dir created");
       }) // Creating new dir named "assets".
@@ -127,27 +127,98 @@
 
   - [Click here](https://medium.com/@diego.coder/buffers-and-streams-in-node-js-8cf094621dd9) to read more about streams and buffers.
 
-![stream-and-buffer](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/92a9ef9b-5238-4bfb-8ec3-18f03791fe37)
+  ![stream-and-buffer](https://github.com/Jayasimman-P-K/node-js-notes/assets/92907116/92a9ef9b-5238-4bfb-8ec3-18f03791fe37)
 
-- ###### Example Code:
+  **Example code for buffer and streams:**
 
-```js
-const fs = require("fs");
+  ```javascript
+  const fs = require("fs");
 
-const readStream = fs.createReadStream("./docs/text1.txt", {
-  encoding: "utf-8",
-});
-const writeStream = fs.createWriteStream("./docs/text2.txt");
+  const readStream = fs.createReadStream("./docs/text1.txt", {
+    encoding: "utf-8",
+  });
+  const writeStream = fs.createWriteStream("./docs/text2.txt");
 
-// This is how we read data from readStream
-readStream.on("data", (chunk) => {
-  // chunk is the data read using readStream
-  writeStream.write("========= New Chunk ========");
-  writeStream.write(chunk); // Now we pass that chunk into writeStream
-});
+  // Method 1
+  readStream.on("data", (chunk) => {
+    writeStream.write(chunk);
+  });
 
-// We can also do Piping as well, which works same as the above code.
+  // Method 2 : Piping
+  readStream.pipe(writeStream);
+  ```
 
-// Piping => When we have to do both the process at the same time.
-readStream.pipe(writeStream);
-```
+## Chapter 3 & 4 : Clients & Servers
+
+    ```js
+    const http = require("http");
+    const fs = require("fs");
+
+    const server = http.createServer((req, res) => {
+    console.log(req.url, req.method);
+
+    // set header content type
+    res.setHeader("content-type", "text/html");
+
+    // routing
+    let path = "./public/";
+    switch (req.url) {
+        case "/":
+        path += "index.html";
+        res.statusCode = 200;
+        break;
+        case "/about":
+        path += "about.html";
+        res.statusCode = 200;
+        break;
+        case "/about-me":
+        res.statusCode = 301;
+        res.setHeader("Location", "/about"); // redirects
+        res.end();
+        break;
+        default:
+        path += "error.html";
+        res.statusCode = 404;
+        break;
+    }
+
+    // send an response
+    fs.readFile(path, (err, data) => {
+        err
+        ? (console.log(err),
+            // end the response
+            res.end())
+        : (res.write(data),
+            // end the response
+            res.end());
+    });
+    });
+
+    server.listen(3000, "localhost", () => {
+    console.log("listening for the request on port 3000");
+    });
+
+    ```
+
+- #### Request & Responses
+  - **Status Code:** describes the type of response sent to the browser.
+  - **Status Codes:**
+    - 100 range - informational responses
+    - 200 range - success codes
+      - eg: 200 - ok
+    - 300 range - codes for redirects
+      - eg: 301 - moved permanently
+    - 400 range - client side error codes
+      - eg: 404 - not found
+    - 500 range - server side error codes
+      - eg: 500 - internal server error
+
+## Chapter 5 : NPM
+
+- #### ExpressJS
+- #### View Engines
+- #### Middlewares
+- #### MongoDB
+- #### Get, Post, Put & Delete
+- #### Express Router & MVC
+- #### Wrap up
