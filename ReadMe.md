@@ -268,10 +268,14 @@ app.use((req, res) => {
 
   - part of the routes that are variable, that can be changed dynamically
 
-  ```
+  ```console
   localhost:3000/blogs/:id
   ```
 
 ## Chapter 11 : Express Router & MVC
+
+- **MVC** - **M**odel, **V**iew, **C**ontroller
+- MVC is a way for structuring our code and files
+- It keeps code more modular, reusable and easy to use
 
 ## End : Wrap up
