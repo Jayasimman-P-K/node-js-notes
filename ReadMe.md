@@ -257,6 +257,21 @@ app.use((req, res) => {
 
 ## Chapter 10 : Get, Post, Put & Delete
 
+- ### Request types:
+
+  - **GET** requests to get a resource
+  - **POST** requests to create a new data
+  - **DELETE** requests to delete data
+  - **PUT** requests to updata data
+
+- ### Route Paramenters
+
+  - part of the routes that are variable, that can be changed dynamically
+
+  ```
+  localhost:3000/blogs/:id
+  ```
+
 ## Chapter 11 : Express Router & MVC
 
-## Wrap up
+## End : Wrap up
