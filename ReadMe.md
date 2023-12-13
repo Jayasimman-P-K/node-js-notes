@@ -21,7 +21,8 @@
   // peoples.js : fileName
   const names = ["Jayasi", "Modi", "Musk", "mark"];
   const age = ["25", "65", "45", "35"];
-  module.exports = { names, age }; // export syntax
+  module.exports.person = ["human", "human", "alien", "human"] // named export
+  module.exports = { names, age }; // default export syntax
 
   // module.js : fileName
   const { names, age } = require("./peoples"); // import syntax
