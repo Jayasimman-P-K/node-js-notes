@@ -21,7 +21,7 @@
   // peoples.js : fileName
   const names = ["Jayasi", "Modi", "Musk", "mark"];
   const age = ["25", "65", "45", "35"];
-  module.exports.person = ["human", "human", "alien", "human"] // named export
+  module.exports.creature = ["human", "human", "alien", "human"] // named export
   module.exports = { names, age }; // default export syntax
 
   // module.js : fileName
